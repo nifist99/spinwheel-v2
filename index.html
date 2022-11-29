@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Lucky Thunder Wheel Davo88</title>	
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Lucky Thunder Wheel Davo88">
+    <link rel="icon" href="https://www.luckythunder.quest/assets/images/website/wheel-favicon-20220824215745.png">
+
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/all.css">
+	<link rel="stylesheet" href="assets/custom.css">
+	<link rel="stylesheet" type="text/css" href="assets/website.css">
+</head>
+<body class="img-back">
+
+ <img src="https://www.luckythunder.quest/assets/images/website/wheel-background-20220821154738.jpg" 
+ style="width: 100%; height: 100vh; position: fixed;"/>'+
+ 
+ <div class="row">
+	 <div class="col-md-6">
+		 <div class="container_spinner">
+			   <canvas class="inner"style="width: 430px; height: 430px;" id="canvas" width="620" height="620">
+				 <p style="color: white" align="center">Sorry, your browser doesn\'t support canvas. Please try another.</p>
+			 </canvas>
+			   <img class="inner" style="width: 560px; height: 560px;" src="https://www.luckythunder.quest/assets/images/website/wheel-spinner-20220821154738.png">'+
+		 </div>
+	 </div>
+	 <div class="col-md-6">
+		 <table class="main">
+			 <tr>
+				 <td align="center" valign="center">
+					<div class="margin-box">
+						 <img class="logo-web" src="https://www.luckythunder.quest/assets/images/website/wheel-logo-20220821155631.png">
+						 <h2 style="color: white; margin: 27px;"><b>Masukkan Kode Tiket</b></h2>
+						 <input type="text" name="voucher" placeholder="Kode Tiket">
+						 <small id="error_message_voucher" class="text-warning form-label"></small>
+						 <div class="row">
+							<div class="col-md-6" style="margin-top: 20px;">
+								<button type="submit" name="start" class="submit" onclick="startSpin()"><b>SPIN</b></button>
+							 </div>
+							 <div class="col-md-6" style="margin-top: 20px;">
+								 <button type="submit" name="history" class="submit" onclick="getHistory()"><b>RIWAYAT</b></button>
+							 </div>
+						 </div>
+					 </div>
+				 </td>
+			 </tr>
+		 </table>
+	 </div>
+ </div>
+
+
+ <section class="container">
+	<div id="popup-container-ads" class="popup-container" data-role="popup" style="display: none;">
+		<div id="popup-body" class="popup-body popup-container-ads" style="width: 300px; height: 72px;">
+			<div class="popup-close" onclick="close_popup_start()"><center><b>x</b></center></div>
+			<h6 style="text-align: center; padding: 17px;">SELAMAT DATANG DI <br> Lucky Thunder Wheel Davo88</h6>
+		</div>
+	</div>
+
+	<div id="popup-container-win" class="popup-container" style="display: none;">
+		<div id="popup-body" class="popup-body" style="height: 563px; background: none;">
+			<div class="popup-close" onclick="close_popup_winner()"><center><b>x</b></center></div>
+			<div id="popup-header" class="popup-header" style="background: none;">
+				<center><h5 id="title-popup-win" style="padding: 10px;"><b>Selamat Anda Mendapatkan</b></h5></center>
+			</div>
+			
+			<div style="height: 91.5%;width: 100%; padding: 20px 0px;">
+				<table style="width: 100%;">
+					<tbody><tr>
+						<td align="center" style="padding: 20px 0px;">
+							<img id="item-image" src="https://www.luckythunder.quest/assets/images/website/wheel-ItemImage1-20220821154739.png">
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="color: #f8df03;">
+							<h3 id="item-value">IDR 18.000,00</h3>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="padding: 15px 30px; color: #f8df03;">
+							<h6 id="item-description" style="color: white; margin-bottom: 10px;">Selamat anda mendapatkan hadiah gadget ipad pro. Silahkan anda Screenshot sebagai bukti kemenangan anda!</h6>
+
+							<h6 style="margin: 0;">USERNAME : <span id="voucher-username">jojo_cornor</span></h6>
+							<h6 style="margin: 0;">KODE TIKET : <span id="voucher-code">101010</span></h6>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="padding: 10px 0px;">
+							<a id="link_claim" target="_blank" class="claimed"><b>KLAIM SEKARANG</b></a>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup-container-history" class="popup-container" style="display: none;">
+		<div id="popup-body" class="popup-body" style="height: 563px;">
+			<div class="popup-close" onclick="close_popup_history()"><center><b>x</b></center></div>
+			<div id="popup-header" class="popup-header">
+				<center><h6 id="title-popup-win" style="padding: 10px;"><b>60 Daftar Riwayat Spin Terakhir</b></h6></center>
+			</div>
+			
+			<div style="overflow-y: scroll;height: 91.5%;width: 100%;">
+				<div style="padding: 5px;">
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th align="center" valign="center" style="width: 10%; text-align: center;">NO</th>
+								<th align="center" valign="center" style="width: 50%;">USERNAME</th>
+								<th align="center" valign="center" style="width: 40%; text-align: center;">WINNER</th>
+							</tr>
+						</thead>
+						<tbody id="history-container">
+							<tr>
+								<td style="width: 10%; padding: 5px; text-align: center;">1</td>
+								<td style="width: 50%; padding: 5px;">Username</td>
+								<td style="width: 40%; padding: 5px; text-align: center;">IDR 18.000,00</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<script type="text/javascript" src="assets/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/Winwheel.js"></script>
+	<script type="text/javascript" src="assets/TweenMax.min.js"></script>
+	<script type="text/javascript" src="assets/index.min.js"></script>
+	<script type="text/javascript" src="assets/popper.min.js" ></script>
+	<script type="text/javascript" src="assets/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="assets/website.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#popup-container-ads").show()
+		});
+
+	</script>
+
+    <script>
+    	var data_winner = null, 
+		theWheel,
+		claim_message = 'Halo bossku, saya dengan ID *{{username}}* ingin klaim hadiah *{{item_name}} {{item_value}}* bossku';
+    	let audio = new Audio ('https://www.luckythunder.quest/assets-website/spin.mp3');
+    	audio.volume = 0.2
+	    audio.loop = true;
+
+		setSpinner();
+
+        function setSpinner(){
+            theWheel = new Winwheel({
+                'numSegments'       : 8,
+                'outerRadius'       : 200, 
+                'drawText'          : false,
+                'textFontSize'      : 16,
+                'textOrientation'   : 'curved',
+                'textAlignment'     : 'inner',
+                'textMargin'        : 90,
+                'textFontFamily'    : 'monospace',
+                'textStrokeStyle'   : 'black',
+                'textLineWidth'     : 3,
+                'textFillStyle'     : 'white',
+                'pointerAngle'		: 345,
+                'drawMode'          : 'segmentImage', 
+                'segments'          :                  
+                [
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage1-20220821154739.png',  'text' : '1'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage2-20220821154739.png',  'text' : '2'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage3-20220821154739.png',  'text' : '3'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage4-20220821154739.png',  'text' : '4'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage5-20220821154739.png',  'text' : '5'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage6-20220821154739.png',  'text' : '6'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage7-20220821154739.png',  'text' : '7'},
+                   {'image' : 'https://www.luckythunder.quest/assets/images/website/wheel-ItemImage8-20220821155712.png',  'text' : '8'},
+                ],
+                'animation' :    
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 7, 
+                    'spins'    : 8, 
+                    'callbackSound' : playSound, 
+                    'callbackFinished' : dialodWinner
+                }
+            });
+        }
+
+        function startSpin(){
+        	var voucher_val = $("input[name=voucher]").val();
+        	if (voucher_val.length <= 0){
+        		$("#error_message_voucher").html("Kode Tiket tidak boleh kosong!");
+        		return;
+        	}
+
+        	$("button[name=start]").attr('disabled','disabled');
+        	$("button[name=history]").attr('disabled','disabled');
+	        $("#error_message_voucher").html('sedang memeriksa kode tiket..');
+	        $.ajax({
+	            url: 'https://www.luckythunder.quest/website/check/'+voucher_val,
+	            type: 'get',
+	            contentType: 'application/json',
+	            success: function( data, textStatus, jQxhr ){
+				    var data = JSON.parse(data);
+				    $("#error_message_voucher").html(data['message']);
+
+				    if (data['code'] == 200) {
+				    	data_winner = data;
+				    	
+				    	setTimeout(function(){
+					    	theWheel.stopAnimation(false); 
+			                theWheel.rotationAngle = 0; 
+			                theWheel.draw();  
+
+			                theWheel.animation.spins = 10;
+			                theWheel.animation.stopAngle = data['item_angle'];
+
+			                theWheel.startAnimation();
+					    }, 200);
+				    }else{
+				    	$("button[name=start]").removeAttr('disabled');
+				    	$("button[name=history]").removeAttr('disabled');
+				    }
+				},
+				error: function( jqXhr, textStatus, errorThrown ){
+				    console.log(errorThrown);
+				}
+	        });
+        }
+
+        function dialodWinner(indicatedSegment){
+            if (data_winner != null) {
+            	audio.src ="https://www.luckythunder.quest/assets-website/congrats.mp3";
+            	audio.loop = false;
+            	audio.play();
+            	
+            	$("#item-image").attr("src", data_winner['item_image']);
+	            $("#item-value").html(data_winner['item_value']);
+	            $("#voucher-username").html(data_winner['username']);
+	            $("#voucher-code").html(data_winner['voucher']);
+	            $("#item-description").html(data_winner['item_description']);
+
+
+				claim_message = claim_message.replaceAll('{{username}}', data_winner['username']);
+				claim_message = claim_message.replaceAll('{{voucher}}', data_winner['voucher']);
+				claim_message = claim_message.replaceAll('{{item_name}}', data_winner['item_name']);
+				claim_message = claim_message.replaceAll('{{item_value}}', data_winner['item_value']);
+
+				var link_claim = "https://wa.me/855718239694?text="+claim_message;
+				$("#link_claim").attr('href', link_claim);
+
+	            var confettiElement = document.getElementById('my-canvas');
+				var confettiSettings = { target: confettiElement };
+				var confetti = new ConfettiGenerator(confettiSettings);
+				confetti.render();
+			    
+			    $("#my-canvas").css("display", "block");
+	            $("#popup-container-win").fadeIn(1000);
+            }else{
+            	audio.src ="https://www.luckythunder.quest/assets-website/musik.mp3";
+            	audio.play();
+            }
+        }
+
+        function getHistory(){
+        	$("#error_message_voucher").html("Mohon Tunggu...");
+
+        	$("button[name=history]").attr('disabled','disabled');
+	        $.ajax({
+	            url: 'https://www.luckythunder.quest/website/history',
+	            type: 'get',
+	            contentType: 'application/json',
+	            success: function( data, textStatus, jQxhr ){
+				    var data = JSON.parse(data);
+				    $("#error_message_voucher").html("");
+				    $("#history-container").html("");
+
+				    var str = '';
+				    for (var i = 0; i < data.length; i++) {
+				    	str += '<tr>'+
+	                    			'<td style="width: 10%; padding: 5px; text-align: center;">'+data[i]['no']+'</td>'+
+		                    		'<td style="width: 50%; padding: 5px;">'+data[i]['username']+'</td>'+
+		                    		'<td style="width: 40%; padding: 5px; text-align: center;">'+data[i]['value']+'</td>'+
+		                    	'</tr>';
+				    }
+
+				    $("#history-container").html(str);
+				    $("#popup-container-history").fadeIn(1000);
+				},
+				error: function( jqXhr, textStatus, errorThrown ){
+				    console.log(errorThrown);
+				}
+	        });
+        }
+
+        function playSound() {
+            audio.pause();
+            audio.currentTime = 0;
+
+            audio.src ="https://www.luckythunder.quest/assets-website/spin.mp3";
+            audio.loop = false;
+            audio.play();
+        }
+
+        function close_popup_winner() {
+        	data_winner = null;
+        	audio.src ="https://www.luckythunder.quest/assets-website/musik.mp3";
+        	audio.loop = true;
+        	audio.play();
+
+        	$("#error_message_voucher").html("");
+        	$("input[name=voucher]").val("");
+        	$("button[name=start]").removeAttr('disabled');
+			$("button[name=history]").removeAttr('disabled');
+		    $("#popup-container-win").fadeOut(500);
+		    $("#my-canvas").css("display", "none");
+
+		    theWheel.animation.spins = 2;
+            theWheel.animation.stopAngle = 15;
+
+            theWheel.startAnimation();
+		}
+
+		function close_popup_history() {
+        	$("button[name=start]").removeAttr('disabled');
+			$("button[name=history]").removeAttr('disabled');
+		    $("#popup-container-history").fadeOut(500);
+		}
+
+		function close_popup_start() {
+		    $("#popup-container-ads").fadeOut(500);
+
+		    theWheel.animation.spins = 10;
+            theWheel.animation.stopAngle = 0;
+
+            theWheel.startAnimation();
+		}
+
+        var music = document.createElement("AUDIO")
+        document.body.appendChild(music);
+
+                	document.oncontextmenu = function (e) {e.preventDefault(); return false;}
+            document.onkeydown = function (e) {
+                if (event.keyCode == 123) {return false;}
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {return false;}
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {return false; }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {return false; }
+                if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {return false;}
+            }
+            </script><audio></audio>
+
+		</script>
+
+
+</body></html>
